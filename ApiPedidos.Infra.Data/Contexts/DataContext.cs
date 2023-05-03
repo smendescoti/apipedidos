@@ -11,9 +11,13 @@ namespace ApiPedidos.Infra.Data.Contexts
 {
     public class DataContext : DbContext
     {
-        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        /// <summary>
+        /// Construtor para injeção de dependência
+        /// </summary>
+        /// <param name="options">Parametro contendo todas as info para conexão com o banco de dados</param>
+        public DataContext(DbContextOptions<DataContext> options) : base(options)
         {
-            optionsBuilder.UseInMemoryDatabase(databaseName: "BDApiPedidos");
+
         }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)

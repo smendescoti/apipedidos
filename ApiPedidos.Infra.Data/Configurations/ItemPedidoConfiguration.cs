@@ -15,6 +15,9 @@ namespace ApiPedidos.Infra.Data.Configurations
         {
             builder.HasKey(i => i.Id);
 
+            builder.Property(i => i.Preco)
+                .HasColumnType("decimal(18,2)");
+
             builder.HasOne(i => i.Pedido)
                 .WithMany(p => p.ItensPedido)
                 .HasForeignKey(i => i.PedidoId)

@@ -11,6 +11,7 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllers();
 
 SwaggerConfiguration.AddSwagger(builder);
+EntityFrameworkConfiguration.AddEntityFramework(builder);
 DependencyInjectionConfiguration.AddDependencyInjection(builder);
 CorsConfiguration.AddCors(builder);
 
